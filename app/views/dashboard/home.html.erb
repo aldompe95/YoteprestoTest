@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <%= link_to "Profile", @path, class: "btn btn-default btn-sm" %>
+      <%= link_to "New Requesition", new_requisition_path, class: "btn btn-default btn-sm" %>
+    </div>
+    <div class="col-md-12">
+      <h3>Requisitions</h3>
+      <table class="table">
+        <thead class="thead">
+          <tr>
+            <th>Requisition</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @requisitions.each_with_index do |r,index|  %> 
+          <tr>
+            <th scope="row"><%= index+1 %></th>
+            <td><%= number_to_currency(r.requested_amount) %></td>
+            <td><%= r.created_at.strftime("%d %b. %Y") %></td>
+            <td>
+              <%= link_to edit_requisition_path(r), class: "btn btn-default btn-sm" do %>
+                <span class="glyphicon glyphicon-pencil">
+              <% end %>
+            </td>
+          </tr> 
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
