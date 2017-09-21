@@ -9,7 +9,7 @@
       <div class="col-md-4 col-md-offset-2">
         <div class="form-group">
           <%= f.label :first_name %><br />
-          <%= f.text_field :first_name, :value => @fb_data.first_name, class: "form-control" %>
+          <%= f.text_field :first_name, :value => @fb_data, class: "form-control" %>
         </div>
       </div>
       <div class="col-md-4">
@@ -21,7 +21,7 @@
       <div class="col-md-4 col-md-offset-2">
         <div class="form-group">
           <%= f.label :first_last_name %><br />
-          <%= f.text_field :first_last_name, :value => @fb_data.last_name, class: "form-control" %>
+          <%= f.text_field :first_last_name, :value => @fb_data, class: "form-control" %>
         </div>
       </div>
       <div class="col-md-4">
@@ -34,7 +34,7 @@
         <div class="form-group">
         <%= f.label :birth_date %><br />
         <div class='input-group date' id='datetimepicker1'>
-          <%= f.text_field :birth_date, :value => @fb_data.birthday, class: "form-control",:data => {:provide => "datepicker"} %>
+          <%= f.text_field :birth_date, class: "form-control",:data => {:provide => "datepicker"} %>
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>
