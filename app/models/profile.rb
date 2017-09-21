@@ -1,6 +1,6 @@
 class Profile < ApplicationRecord
-  #validates_presence_of :user_id, :first_name, :first_last_name, 
-  #  :second_last_name, :birth_date, :curp, :rfc, :gender, :birth_state, :phone_number
+  validates_presence_of :user_id, :first_name, :first_last_name, 
+    :second_last_name, :birth_date, :curp, :rfc, :gender, :birth_state, :phone_number
   
   validates :first_name, :second_name, :first_last_name, :second_last_name,
     :birth_state, :gender, format: { with: /\A[a-zA-Z]*(?: [a-zA-Z]*)?\z/,

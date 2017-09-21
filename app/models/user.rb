@@ -18,15 +18,6 @@ class User < ApplicationRecord
         email:    auth.info.email,
         password: Devise.friendly_token[0, 20]
       )
-      # Im not pretty shure if this should be here as a good practices....
-      # I think it should use it the Graph API of facebook to use the fb data in out of the authentication, but this is like an example i founded
-      profile = Profile.create(
-        user_id:         user.id,
-        first_name:      "Prueba",#auth.info.first_name,
-        first_last_name: "Prueba",#auth.info.last_name,
-        birth_date:      "20/04/1995"#Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y')
-      )
-      profile.save
     end
 
     user

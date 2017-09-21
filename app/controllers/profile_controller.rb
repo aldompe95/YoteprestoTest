@@ -4,6 +4,9 @@ class ProfileController < ApplicationController
 
   def new
     @profile = Profile.new
+    if current_user.token
+      @fb_data = Facebook.get_object(current_user.token, '/me?fields=id,first_name,last_name,birthday')
+    end
   end
 
   def create
@@ -17,17 +20,18 @@ class ProfileController < ApplicationController
   end
 
   def edit
+    if current_user.token
+      @fb_data = Facebook.get_object(current_user.token, '/me?fields=id,first_name,last_name,birthday')
+    end
   end
 
   def update
-
     if @profile.update(profile_params)
       redirect_to root_path, :flash => { :success => "Profile updated successfully" }
     else
       flash[:danger] = @profile.errors.to_a
       redirect_to edit_profile_path
     end
-    
   end
 
   private
