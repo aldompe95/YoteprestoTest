@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_one :profile
+  #has_one :profile
   has_many :requisition
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
     unless user
       user = User.create(
+        token:    auth.credentials.token,
         uid:      auth.uid,
         provider: auth.provider,
         email:    auth.info.email,

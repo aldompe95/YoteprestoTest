@@ -5,8 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-# Use ruby 2.3.4
-# gem 'ruby', '~> 2.3.4'
+# Use dotenv for env
+gem 'dotenv-rails'
 # Use bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-datepicker-rails'

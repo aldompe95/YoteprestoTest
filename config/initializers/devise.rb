@@ -250,7 +250,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook, '117291285635057', 'f3d00dde321b06f2476e023be767f0da',
+  config.omniauth :facebook, ENV["FB_APP_ID"], ENV["FB_APP_SECRET"],
     scope: 'email,public_profile,user_birthday',info_fields: 'email,first_name,last_name,birthday',
     token_params: { parse: :json }
 
