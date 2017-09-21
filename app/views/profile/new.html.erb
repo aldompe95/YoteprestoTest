@@ -34,7 +34,7 @@
         <div class="form-group">
         <%= f.label :birth_date %><br />
         <div class='input-group date' id='datetimepicker1'>
-          <%= f.text_field :birth_date, :value => @fb_data.birthday class: "form-control",:data => {:provide => "datepicker"} %>
+          <%= f.text_field :birth_date, :value => @fb_data.birthday, class: "form-control",:data => {:provide => "datepicker"} %>
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>
