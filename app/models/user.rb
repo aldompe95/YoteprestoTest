@@ -21,9 +21,9 @@ class User < ApplicationRecord
       # I think it should use it the Graph API of facebook to use the fb data in out of the authentication, but this is like an example i founded
       profile = Profile.create(
         user_id:         user.id,
-        first_name:      auth.info.first_name,
-        first_last_name: auth.info.last_name,
-        birth_date:      Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y')
+        first_name:      "Prueba",#auth.info.first_name,
+        first_last_name: "Prueba",#auth.info.last_name,
+        birth_date:      "20/04/1995"#Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y')
       )
       profile.save
     end
