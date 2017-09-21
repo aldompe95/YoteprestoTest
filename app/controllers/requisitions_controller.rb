@@ -43,7 +43,7 @@ class RequisitionsController < ApplicationController
 
   def is_profile_complete?
     @profile = current_user.profile
-    if @profile
+    if @profile == nil
       flash[:notice] = "Please fill your profile to create a requisition"
       redirect_to root_path
     end 
