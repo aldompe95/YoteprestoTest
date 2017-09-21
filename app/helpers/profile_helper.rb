@@ -1,4 +1,11 @@
 module ProfileHelper
+  def gender
+    [
+      ['Male', 'Male'],
+      ['Female', 'Female']
+    ]
+  end
+      
   def us_states
     [
       ['Alabama', 'AL'],

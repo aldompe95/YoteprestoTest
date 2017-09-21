@@ -4,9 +4,7 @@ class ProfileController < ApplicationController
 
   def new
     @profile = Profile.new
-    if current_user.token
-      @fb_data = Facebook.get_object(current_user.token, '/me?fields=id,first_name,last_name,birthday')
-    end
+    is_fb_profile?
   end
 
   def create
@@ -20,9 +18,6 @@ class ProfileController < ApplicationController
   end
 
   def edit
-    if current_user.token
-      @fb_data = Facebook.get_object(current_user.token, '/me?fields=id,first_name,last_name,birthday')
-    end
   end
 
   def update
@@ -50,6 +45,12 @@ class ProfileController < ApplicationController
     if @requisition
       flash[:notice] = 'You cant modify your profile because you already have requisitions'
       redirect_to root_path
+    end
+  end
+
+  def is_fb_profile?
+    if current_user.token
+      @fb_data = Facebook.get_object(current_user.token, '/me?fields=id,first_name,last_name,birthday')
     end
   end
 end

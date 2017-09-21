@@ -1,7 +1,7 @@
 class RequisitionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_requisition, only: [:edit, :update]
-  #before_action :is_profile_complete?, only: [:new, :create]
+  before_action :is_profile_complete?, only: [:new, :create]
 
   def new
     @requisition = Requisition.new
@@ -43,16 +43,19 @@ class RequisitionsController < ApplicationController
 
   def is_profile_complete?
     @profile = current_user.profile
-    if @profile == nil
+    if !@profile
       flash[:notice] = "Please fill your profile to create a requisition"
       redirect_to root_path
-    end 
-    @profile.attributes.each_pair do |name, value|
-      if value == (nil || "")
-        flash[:notice] = "Please fill your profile to create a requisition"
-        redirect_to root_path
-      end
-    end 
+    else 
+      @profile.attributes.each_pair do |name, value|
+        if name == "second_name"
+         # do nothing, keep doing the each
+        elsif value == (nil || "")
+          flash[:notice] = "Please fill your profile to create a requisition"
+          redirect_to root_path
+        end
+      end 
+    end
   end
 end
 
