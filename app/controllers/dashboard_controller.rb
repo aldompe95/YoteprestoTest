@@ -4,6 +4,7 @@ class DashboardController < ApplicationController
   def home
     profile_exist?
     @requisitions = current_user.requisition
+    @movies = Facebook.get_object(current_user.token, '/me/movies?fields=name,picture,studio')
   end
 
   private
