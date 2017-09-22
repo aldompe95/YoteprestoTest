@@ -1,8 +1,8 @@
 class DashboardController < ApplicationController
   before_action :authenticate_user!
+  before_action :profile_exist?, only: :home
 
   def home
-    profile_exist?
     @requisitions = current_user.requisition
   end
 

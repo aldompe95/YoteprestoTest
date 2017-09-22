@@ -1,7 +1,7 @@
 class RequisitionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_requisition, only: [:edit, :update]
-  before_action :is_profile_complete?, only: [:new, :create]
+  before_action :is_profile_complete?, only: :new
 
   def new
     @requisition = Requisition.new

@@ -8,7 +8,7 @@ FactoryGirl.define do
     birth_date        "09/13/2017"
     curp              "MAEA950426HCMRSL00"
     rfc               "MAEA950426KN1"
-    gender            "MALE"
+    gender            "Male"
     birth_state       "AL"
     phone_number      "3121414298"
   end

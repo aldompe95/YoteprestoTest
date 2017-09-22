@@ -1,10 +1,10 @@
 class ProfileController < ApplicationController
   before_action :authenticate_user!
   before_action :set_profile, :are_requisitions?,  only: [:edit, :update]
+  before_action :is_fb_profile?, only: :new
 
   def new
     @profile = Profile.new
-    is_fb_profile?
   end
 
   def create
@@ -49,7 +49,7 @@ class ProfileController < ApplicationController
   end
 
   def is_fb_profile?
-    if current_user.token
+    if current_user.uid
       @fb_data = Facebook.get_object(current_user.token, '/me?fields=id,first_name,last_name,birthday')
     end
   end
