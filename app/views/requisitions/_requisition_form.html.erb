@@ -29,7 +29,7 @@
           <div class="col-md-3">
             <div class="form-group">
               <%= f.label :marital_status %><br />
-              <%= f.select :marital_status, options_for_select(marital_status), {:include_blank => true}, {class: 'form-control'} %>
+              <%= f.select :marital_status, options_for_select(marital_status, @requisition.marital_status), {:include_blank => true}, {class: 'form-control'} %>
             </div>
           </div>
           <div class="col-md-3">
